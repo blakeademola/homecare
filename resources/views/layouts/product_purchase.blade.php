@@ -47,6 +47,7 @@
         @endforeach
     </ul>
 @endif
+
 <div class="row">
 
     @forelse($products as $product)
@@ -55,7 +56,7 @@
 
             <div class="card" style="width: 18rem;">
 
-                <img src=" {{asset('images/icon/avatar-06.jpg')}}" class="card-img-top" alt="image here">
+                <img data-toggle="modal" data-backdrop="false" data-target="#exampleModal" src=" {{asset('images/icon/avatar-06.jpg')}}" class="card-img-top" alt="image here">
                 <div class="card-body parent">
                     <h5 class="card-title">{{$product->name}}</h5>
                     <p class="card-text">{{$product->description}}</p>
@@ -86,6 +87,23 @@
     @endforelse
 
 </div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="margin-top: 15%">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img src=" {{asset('images/icon/avatar-06.jpg')}}" class="card-img-top" alt="image here">
+
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $('document').ready(function () {
         $('.quantity').click(function () {
@@ -98,6 +116,11 @@
             $("#buy_now-" + id).attr('value', $(this).val());
             $("#available-" + id).text('Available Quantity : '+ reduced_qty)
         });
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus');
+        });
+
 
     });
 
