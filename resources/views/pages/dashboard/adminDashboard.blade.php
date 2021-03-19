@@ -15,7 +15,7 @@
 
     <hr/>
 
-    <table class="table table-hover">
+    <table class="table table-hover sampleTable">
         <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
@@ -41,6 +41,17 @@
         @endforelse
         </tbody>
     </table>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".sampleTable").fancyTable({
+                sortColumn:0,
+                pagination: true,
+                perPage:20,
+                globalSearch:true
+            });
+        });
+    </script>
 @endsection
+
 
 

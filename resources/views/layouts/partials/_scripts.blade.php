@@ -1,6 +1,7 @@
 
 <!-- Jquery JS-->
 <script src="{!! asset('jQuery/jquery-3.2.1.min.js') !!}"></script>
+<script src="{!! asset('js/fancyTable.min.js') !!}"></script>
 <!-- Bootstrap JS-->
 <script src="{!! asset('bootstrap-4.1/popper.min.js') !!}"></script>
 <script src="{!! asset('bootstrap-4.1/bootstrap.min.js') !!}"></script>
@@ -20,6 +21,7 @@
 <script src="{!! asset('chartjs/Chart.bundle.min.js') !!}"></script>
 <script src="{!! asset('noty/js/noty.js') !!}"></script>
 <script src="{!! asset('select2/select2.min.js') !!}"></script>
+
 
 
 <!-- dataTables -->
