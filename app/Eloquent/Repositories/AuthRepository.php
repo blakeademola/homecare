@@ -2,11 +2,7 @@
 
 namespace App\Eloquent\Repositories;
 
-use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
-use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
-use Cartalyst\Sentinel\Laravel\Facades\Activation;
-use Cartalyst\Sentinel\Laravel\Facades\Reminder;
-use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
+
 use App\Eloquent\Interfaces\AuthInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -54,26 +50,17 @@ class AuthRepository implements AuthInterface
      */
     public function activate($userId, $code)
     {
-        $user = Sentinel::findById($userId);
-
-        $success = Activation::complete($user, $code);
-        if ($success) {
-//            event(new UserHasActivatedAccount($user));
-        }
-
-        return $success;
+        // TODO: Implement activate() method.
     }
 
     /**
      * Create a reminders code for the given user
-     * @param \Modules\Users\Repositories\UserInterface $user
+     * @param $user
      * @return mixed
      */
     public function createReminderCode($user)
     {
-        $activation = Activation::exists($user) ?: Activation::create($user);
-
-        return $activation->code;
+        // TODO: Implement createReminderCode() method.
     }
 
     /**
@@ -85,7 +72,7 @@ class AuthRepository implements AuthInterface
      */
     public function completeResetPassword($user, $code, $password)
     {
-        return Reminder::complete($user, $code, $password);
+        // TODO: Implement completeResetPassword() method.
     }
 
     /**
@@ -95,11 +82,7 @@ class AuthRepository implements AuthInterface
      */
     public function hasAccess($permission)
     {
-        if (!Sentinel::check()) {
-            return false;
-        }
-
-        return Sentinel::hasAccess($permission);
+        // TODO: Implement hasAccess() method.
     }
 
     /**
@@ -108,21 +91,7 @@ class AuthRepository implements AuthInterface
      */
     public function check()
     {
-        return Sentinel::check();
-    }
-
-    /**
-     * Check if the user is logged in
-     * @return mixed
-     */
-    public function getUserRoleId()
-    {
-        $user = $this->check();
-        if ($user) {
-            return $user->roles->first()->id;
-        }
-
-        return null;
+        // TODO: Implement check() method.
     }
 
     /**
@@ -131,11 +100,6 @@ class AuthRepository implements AuthInterface
      */
     public function id()
     {
-        if (!$user = $this->check()) {
-            return;
-        }
-
-        return $user->id;
+        // TODO: Implement id() method.
     }
-
 }
